@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
 
     <!-- Judul Web -->
-    <title>KATIK</title>
+    <title>CALCULATOR</title>
 </head>
 <body>
     <!-- Kotak utama -->
@@ -19,15 +19,19 @@
         <!-- Bagian Header -->
         <div class="header">
             <!-- Judul dan deskripsi header -->
-            <h1 class="Judul1">KATIK <em class="Judul2">kalkulator matematik</em></h1>
-            <h2>Selamat datang di KATIK</h2>
-            <p class="penjelasan">Ini adalah sebuah website yang memiliki kegunaan sebagai <strong><em>penghitung luas dan keliling dari persegi</em></strong></p>
+            <h1 class="Judul1">MATH SOLVER</h1>
+            <h3> Mau tahu berapa luasnya bumi kita?</h3>
+            <p class="penjelasan">
+                Jangan khawatir. Pakai kalkulator saja! 
+                Sangat mudah digunakan tinggal klik klik langsung keluar hasilnya deh.
+                Semua permasalahan bisa dihitung, dari luas nya bumi sampai luasnya hati kamu juga bisa di hitung, hehe
+            </p> 
         </div>
         
         <!-- Bagian Kalkulator -->
         <div class="kalkulator">
             <!-- Nama Bagian Perhitungan-->
-            <h3 id="NamaJudulKalkulator">Hitung Luas</h3>
+            <h3 id="NamaJudulKalkulator">HITUNG LUAS</h3>
 
             <!-- Label dan input panjang -->
             <label for="length">Panjang :</label>
@@ -41,7 +45,7 @@
             <button class="tombolHitung" onclick="hitung()">Hitung</button>
 
             <!-- Hasil -->
-            <p id="result">Hasil: </p>
+            <p id="result">HASIL: </p>
 
             <!-- Tombol Switch -->
             <button id="tombolSwitch" onclick="switchMode()">Switch to Keliling</button>
@@ -50,8 +54,265 @@
             <button class="tombolReset" onclick="reset()">Reset</button>
         </div>
     </div>
+    <style>
+        * Styling untuk body dan gambar latar belakang */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-image: url(https://images.pexels.com/photos/5184960/pexels-photo-5184960.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+/* Styling untuk kotak */
+.kotak {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Styling untuk header */
+.header {
+    background-color:#6a740b;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.432);
+}
+
+/* Styling untuk judul dan deskripsi header */
+.header h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.Judul1 {
+    font-size: 25px;
+    color: rgb(199, 175, 144);
+    font-weight: bolder;
+    text-align: left;
+    margin: 0;
+}
+
+/* Styling untuk penjelasan */
+.header h3{
+    margin-top: 15px;
+    text-align: left;
+    color :#0c0b0b;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: medium;
+    color:#0c0b0b
+}
+
+.penjelasan {
+    text-align: left;
+    font-size: 10px;
+}
+
+/* Styling untuk Nama Bagian Perhitungan */
+#NamaJudulKalkulator {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #f39427;
+}
+
+/* Styling untuk kalkulator */
+.kalkulator {
+    background-color:beige;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.432);
+    margin: 20px 0;
+}
+
+/* Styling untuk label dan input*/
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #f39427;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #f39427;
+    border-color:#f39427;
+}
+
+/* Styling untuk tombol */
+.tombolHitung {
+    background-color:#f39427;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tombolHitung:hover {
+    background-color:#f39427;
+}
+
+/* Styling untuk result */
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color:#f39427;
+}
+
+/* Styling untuk tombol switch */
+#tombolSwitch {
+    background-color:#f39427;
+    color: #f5efef;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#tombolSwitch:hover {
+    background-color:#f39427;
+}
+
+.tombolReset {
+    background-color:#f39427;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.tombolReset:hover {
+    background-color:#f39427;
+}
+
+/* Media queries untuk tampilan responsif */
+@media only screen and (max-width: 600px) {
+    /* Styling untuk layar berukuran maksimum 600px */
+    .kotak {
+        max-width: 100%;
+        margin: 10px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .Judul1 {
+        font-size: 20px;
+    }
+
+    .Judul2 {
+        font-size: 15px;
+    }
+
+    .penjelasan {
+        font-size: 10px;
+    }
+
+    .kalkulator {
+        padding: 15px;
+    }
+
+    .cr {
+        padding: 15px;
+    }
+}
+    </style>
     <!-- Script JavaScript -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js">
+        // Fungsi untuk menghitung luas
+function hitungLuas() {
+    // Mengambil nilai panjang dan lebar dari input
+    var panjang = document.getElementById('length').value;
+    var lebar = document.getElementById('width').value;
+
+    // Memeriksa apakah panjang atau lebar kosong
+    if (panjang === '' || lebar === '') {
+        // Jika salah satu atau keduanya kosong, tampilkan pesan dan hentikan fungsi
+        alert('Masukkan panjang dan lebar terlebih dahulu');
+        return;
+    }
+
+    // Menghitung luas berdasarkan panjang dan lebar
+    var luas = panjang * lebar;
+
+    // Menampilkan hasil luas di elemen dengan id 'result'
+    document.getElementById('result').innerHTML = `Hasil Luas: ${luas} cm2`;
+}
+
+// Fungsi untuk menghitung keliling
+function hitungKeliling() {
+    // Mengambil nilai panjang dan lebar dari input
+    var panjang = document.getElementById('length').value;
+    var lebar = document.getElementById('width').value;
+
+    // Memeriksa apakah panjang atau lebar kosong
+    if (panjang === '' || lebar === '') {
+        // Jika salah satu atau keduanya kosong, tampilkan pesan dan hentikan fungsi
+        alert('Masukkan panjang dan lebar terlebih dahulu');
+        return;
+    }
+
+    // Menghitung keliling berdasarkan panjang dan lebar
+    var keliling = 2 * (parseInt(panjang) + parseInt(lebar));
+
+    // Menampilkan hasil keliling di elemen dengan id 'result'
+    document.getElementById('result').innerHTML = `Hasil Keliling: ${keliling} cm`;
+}
+
+// Variabel untuk menyimpan mode saat ini (default: luas)
+var mode = 'luas';
+
+// Fungsi untuk mengubah mode antara luas dan keliling
+function switchMode() {
+    var switchButton = document.getElementById('tombolSwitch');
+    var titleElement = document.getElementById('NamaJudulKalkulator');
+
+    // Mengubah mode dan teks tombol
+    if (mode === 'luas') {
+        mode = 'keliling';
+        switchButton.innerHTML = 'Switch Ke Luas';
+        titleElement.innerHTML = 'Hitung Keliling';
+    } else {
+        mode = 'luas';
+        switchButton.innerHTML = 'Switch Ke Keliling';
+        titleElement.innerHTML = 'Hitung Luas';
+    }
+}
+
+// Fungsi untuk melakukan perhitungan sesuai dengan mode
+function hitung() {
+    if (mode === 'luas') {
+        hitungLuas();
+    } else {
+        hitungKeliling();
+    }
+}
+
+// Fungsi untuk mereset nilai panjang dan lebar
+function reset() {
+    document.getElementById('length').value = '';
+    document.getElementById('width').value = '';
+    hideResult();
+}
+
+// Fungsi untuk menyembunyikan hasil
+function hideResult() {
+    document.getElementById('result').innerHTML = 'Hasil: ';
+}
+    </script>
 </body>
 </html>
